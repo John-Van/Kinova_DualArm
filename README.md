@@ -1,49 +1,53 @@
-Kinova_DualArm Device Documentation Repository
-This repository contains delivery documents for the mobile dual-arm manipulation robot. It aims to facilitate knowledge sharing among team members involved in device debugging and development by providing technical materials, drivers, and usage instructions.
-Documentation Structure
-The repository covers documentation for core components including robotic arms, chassis, lifting motors, and pitching motors. The structure is as follows:
+Kinova_DualArm 设备文档库
+该仓库包含移动双臂操作机器人的交付文档，旨在方便团队成员共享设备相关的技术资料、驱动程序及使用说明，助力设备调试与开发工作。
+文档结构说明
+仓库主要涵盖机械臂、底盘、升降电机、俯仰电机等核心部件的相关文档，具体结构如下：
 
-Robotic Arm: Contains documents related to Kinova-kortex2_Gen3_G3L series, including LICENSE, download links (readme.md), C++ API examples, and configuration files. Covers firmware, API downloads and usage, and compilation instructions for sample code.
-Chassis: Provides documentation for the rpp_driver library, including protocol references, SDK introduction, CMakeLists.txt and other configuration files supporting various chassis types (two-wheel differential, four-wheel differential, etc.).
-Lifting Motor: Includes driver package structure, technical support information, troubleshooting methods, and configuration/compilation instructions for SDK and ROS2 driver packages.
-Pitching Motor: Provides driver package structure, protocol document references, and relevant information/usage methods for SDK and ROS2 driver packages.
-Usage Guidelines for Component Documentation
-Robotic Arm
-Firmware and API Download: Refer to the download links in Kinova-kortex2_Gen3_G3L/readme.md to obtain the corresponding version of firmware, release notes, and API based on the robotic arm type (e.g., Gen3 lite).
-C++ Environment Setup: Consider using a Docker environment as detailed in api_cpp/examples/readme.md.
-Sample Code Compilation: Follow the instructions in api_cpp/examples/CMakeLists.txt for compilation on different operating systems (Linux, Windows).
-Chassis
-Protocol Reference: The protocol document is available at Yuque Documentation.
-SDK Introduction: rpp_driver is a new protocol C++ driver library for universal chassis, supporting multiple chassis types. Refer to sdk使用说明.md and rpp_driver/README.md.
-Lifting Motor
-Driver Package Structure: Contains basic SDK package (motor_lift_sdk) and ROS2 driver package (motor_lift_ros). See 升降电机/README.md for directory structure.
-Compilation and Execution:
-SDK Compilation: Navigate to the motor_lift_sdk directory and execute:
+机械臂：包含 Kinova-kortex2_Gen3_G3L 系列相关文档，如许可证（LICENSE）、下载链接（readme.md）、C++ API 示例及配置文件等，涉及固件、API 的下载与使用，以及示例代码的编译构建说明。
+底盘：提供 rpp_driver 驱动库的说明文档，包括协议参考、SDK 简介、CMakeLists.txt 等配置文件，支持多种类型底盘（两轮差速、四轮差速等）。
+升降电机：包含驱动包的目录结构、技术支持信息、故障排除方法、SDK 及 ROS2 驱动包的配置与编译说明等。
+俯仰电机：提供驱动包的目录结构、协议文档参考、SDK 及 ROS2 驱动包的相关信息与使用方法。
+各部件文档使用指引
+机械臂
+固件与 API 下载：参考 Kinova-kortex2_Gen3_G3L/readme.md 中的下载链接，根据机械臂类型（如 Gen3 lite）获取对应版本的固件、发布说明及 API。
+C++ 环境搭建：可考虑使用 Docker 环境，详情参考 api_cpp/examples/readme.md。
+示例代码编译：按照 api_cpp/examples/CMakeLists.txt 中的说明，根据不同操作系统（Linux、Windows）进行编译构建。
+底盘
+协议参考：协议文档详见 语雀文档。
+SDK 简介：rpp_driver 是通用底盘的新版协议 C++ 驱动库，支持多种底盘类型，参考 sdk使用说明.md 和 rpp_driver/README.md。
+升降电机
+驱动包结构：包含基础 SDK 包（motor_lift_sdk）和 ROS2 驱动包（motor_lift_ros），目录结构详见 升降电机/README.md。
+编译与运行：
+SDK 编译：进入 motor_lift_sdk 目录，执行如下命令
+bash
 mkdir build && cd build
 cmake ..
 make
-./rpp_keyboard_teleoperate  # Run keyboard control example
-ROS2 Driver Package: Compile according to motor_lift_ros/CMakeLists.txt. Configuration files can be found in config/config.yaml.
-Troubleshooting: For device recognition, communication failures, etc., refer to common issues and solutions in 升降电机/README.md.
-Pitching Motor
-Driver Package Structure: Contains basic SDK package (motor_pitch_sdk) and ROS2 driver package (motor_pitch_ros). See 俯仰电机/README.md for directory structure.
-Protocol and Usage: Refer to 俯仰电机协议.xlsx for protocol description. See README.md in corresponding directories for specific usage methods.
-Compilation and Execution: Navigate to the motor_pitch_sdk directory and execute:
+./rpp_keyboard_teleoperate  # 运行键盘控制示例
+
+ROS2 驱动包：参考 motor_lift_ros/CMakeLists.txt 进行编译，配置文件可查看 config/config.yaml。
+故障排除：遇到设备识别、通信失败等问题，参考 升降电机/README.md 中的常见问题及解决方法。
+俯仰电机
+驱动包结构：包含基础 SDK 包（motor_pitch_sdk）和 ROS2 驱动包（motor_pitch_ros），目录结构详见 俯仰电机/README.md。
+协议与使用：协议说明参考 俯仰电机协议.xlsx，各包的具体使用方法见对应目录下的 README.md。
+编译运行：进入 motor_pitch_sdk 目录，执行如下命令
+bash
 mkdir build
 cd build/
 cmake ..
 make
 ./rpp_keyboard_teleoperate
-License Information
-The robotic arm-related parts are subject to the licenses of Kinova inc. and Google Inc., 详见 Kinova-kortex2_Gen3_G3L/LICENSE.
-The third-party library cxxopts is subject to the MIT license, 详见 api_cpp/examples/thirdParty/cxxopts/LICENSE.
-For license information of other parts, please refer to the documentation in their respective directories.
-Technical Support
-For detailed technical parameters, maintenance instructions, and usage methods of each component, please refer to the manuals, protocol documents, and README.md files in the corresponding directories:
 
-Lifting Motor: 升降电机手册.pdf and README.md in each package
-Pitching Motor: 俯仰电机协议.xlsx and README.md in each package
-Chassis: Protocol documents and rpp_driver related documentation
-Robotic Arm: API documentation and sample code instructions
+许可证说明
+机械臂相关部分遵循 Kinova inc. 及 Google Inc. 的许可证，详见 Kinova-kortex2_Gen3_G3L/LICENSE。
+第三方库 cxxopts 遵循 MIT 许可证，详见 api_cpp/examples/thirdParty/cxxopts/LICENSE。
+其他部分许可证信息请参考各对应目录下的说明文件。
+技术支持
+各部件详细技术参数、维护说明及使用方法，请参考对应目录下的手册、协议文档及 README.md 文件：
 
-For additional questions, please contact the maintenance personnel for each component.
+升降电机：升降电机手册.pdf 及各包的 README.md
+俯仰电机：俯仰电机协议.xlsx 及各包的 README.md
+底盘：协议文档及 rpp_driver 相关说明文档
+机械臂：API 文档及示例代码说明
+
+如有其他问题，可联系各部件维护人员。
