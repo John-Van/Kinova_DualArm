@@ -19,25 +19,21 @@ Lifting Motor
 Driver Package Structure: Contains basic SDK package (motor_lift_sdk) and ROS2 driver package (motor_lift_ros). See 升降电机/README.md for directory structure.
 Compilation and Execution:
 SDK Compilation: Navigate to the motor_lift_sdk directory and execute:
-bash
 mkdir build && cd build
 cmake ..
 make
 ./rpp_keyboard_teleoperate  # Run keyboard control example
-
 ROS2 Driver Package: Compile according to motor_lift_ros/CMakeLists.txt. Configuration files can be found in config/config.yaml.
 Troubleshooting: For device recognition, communication failures, etc., refer to common issues and solutions in 升降电机/README.md.
 Pitching Motor
 Driver Package Structure: Contains basic SDK package (motor_pitch_sdk) and ROS2 driver package (motor_pitch_ros). See 俯仰电机/README.md for directory structure.
 Protocol and Usage: Refer to 俯仰电机协议.xlsx for protocol description. See README.md in corresponding directories for specific usage methods.
 Compilation and Execution: Navigate to the motor_pitch_sdk directory and execute:
-bash
 mkdir build
 cd build/
 cmake ..
 make
 ./rpp_keyboard_teleoperate
-
 License Information
 The robotic arm-related parts are subject to the licenses of Kinova inc. and Google Inc., 详见 Kinova-kortex2_Gen3_G3L/LICENSE.
 The third-party library cxxopts is subject to the MIT license, 详见 api_cpp/examples/thirdParty/cxxopts/LICENSE.
